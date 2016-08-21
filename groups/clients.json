@@ -1,0 +1,7 @@
+{
+  "name": "clients",
+  "clients": [
+    "anuyog-validator",
+    "vm-controller"
+  ]
+}

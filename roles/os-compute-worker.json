@@ -1,0 +1,7 @@
+{
+  "name": "os-compute-worker",
+  "description": "The compute node, most likely with a hypervisor.",
+  "run_list": [
+    "recipe[openstack-compute::compute]"
+  ]
+}

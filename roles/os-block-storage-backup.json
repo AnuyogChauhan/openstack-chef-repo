@@ -1,0 +1,8 @@
+{
+  "name": "os-block-storage-backup",
+  "description": "OpenStack Block Storage Backup service",
+  "run_list": [
+    "role[os-base]",
+    "recipe[openstack-block-storage::backup]"
+  ]
+}

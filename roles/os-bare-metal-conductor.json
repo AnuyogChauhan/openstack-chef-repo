@@ -1,0 +1,8 @@
+{
+  "name": "os-bare-metal-conductor",
+  "description": "OpenStack Bare Metal Conductor service",
+  "run_list": [
+    "role[os-base]",
+    "recipe[openstack-bare-metal::conductor]"
+  ]
+}

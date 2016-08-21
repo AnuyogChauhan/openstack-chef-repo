@@ -1,0 +1,11 @@
+{
+  "name": "test",
+  "run_list": [
+    "recipe[openstack-network::identity_registration]",
+    "recipe[openstack-network::linuxbridge]",
+    "recipe[openstack-network::dhcp_agent]",
+    "recipe[openstack-network::metadata_agent]",
+    "recipe[openstack-network::server]",
+    "recipe[openstack-network::l3_agent]"
+  ]
+}

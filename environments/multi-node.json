@@ -1,0 +1,131 @@
+{
+  "name": "multi-node",
+  "override_attributes": {
+    "mariadb": {
+      "install": {
+        "version": "5.5"
+      },
+      "allow_root_pass_change": true
+    },
+    "openstack": {
+      "mq": {
+        "user": "admin",
+        "compute": {
+          "rabbit": {
+            "host": "lxc-controller",
+            "port": "5672"
+          }
+        }
+      },
+      "db": {
+        "service_type": "mariadb"
+      },
+      "dashboard": {
+        "server_hostname": "lxc-controller"
+      },
+      "identity": {
+        "bind_interface": "eth0"
+      },
+      "endpoints": {
+        "host": "lxc-controller",
+        "bind-host": "lxc-controller",
+        "mq": {
+          "host": "lxc-controller"
+        },
+        "db": {
+          "host": "lxc-controller"
+        },
+        "identity-public": {
+          "host": "lxc-controller",
+          "port": "35357"
+        },
+        "image-api-bind": {
+          "host": "lxc-controller"
+        },
+        "image-api": {
+          "host": "lxc-controller"
+        },
+        "compute-vnc-bind": {
+          "host": "lxc-controller",
+          "bind_interface": "eth0"
+        },
+        "compute-metadata-api": {
+          "host": "lxc-controller"
+        },
+        "network-linuxbridge": {
+          "host": "10.0.3.202",
+          "bind_interface": "eth0"
+        }
+      },
+      "network": {
+        "enable_ovs": "False",
+        "use_namespaces": "True",
+        "interface_driver": "neutron.agent.linux.interface.BridgeInterfaceDriver",
+        "service_plugins": [
+          "router"
+        ],
+        "dhcp": {
+          "enable_isolated_metadata": "True"
+        },
+        "api": {
+          "bind_interface": "eth0"
+        },
+        "quota": {
+          "floatingip": "50"
+        },
+        "l3": {
+          "external_network_bridge": ""
+        },
+        "ml2": {
+          "type_drivers": "flat,vlan,vxlan",
+          "tenant_network_types": "vxlan",
+          "mechanism_drivers": "linuxbridge,l2population",
+          "flat_networks": "public",
+          "vni_ranges": "1:1000",
+          "enable_ipset": "True"
+        },
+        "linuxbridge": {
+          "physical_interface_mappings": "public:eth0",
+          "enable_vxlan": "True",
+          "l2_population": "True",
+          "firewall_driver": "neutron.agent.linux.iptables_firewall.IptablesFirewallDriver"
+        }
+      },
+      "image": {
+        "api": {
+          "bind_interface": "eth0"
+        },
+        "registry": {
+          "bind_interface": "eth0"
+        },
+        "image_upload": true,
+        "upload_images": [
+          "cirros"
+        ],
+        "upload_image": {
+          "cirros": "https://launchpad.net/cirros/trunk/0.3.0/+download/cirros-0.3.0-x86_64-disk.img"
+        }
+      },
+      "compute": {
+        "enabled_apis": "ec2,osapi_compute",
+        "novnc_proxy": {
+          "bind_interface": "eth0",
+          "bind_address": "0.0.0.0"
+        },
+        "libvirt": {
+          "virt_type": "qemu"
+        },
+        "network": {
+          "public_interface": "eth0",
+          "service_type": "neutron",
+          "neutron": {
+            "linuxnet_interface_driver": "neutron.agent.linux.interface.BridgeInterfaceDriver"
+          },
+          "config": {
+            "ram_allocation_ratio": 5
+          }
+        }
+      }
+    }
+  }
+}

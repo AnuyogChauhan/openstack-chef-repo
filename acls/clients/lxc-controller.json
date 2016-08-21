@@ -1,0 +1,49 @@
+{
+  "create": {
+    "actors": [
+      "lxc-controller",
+      "pivotal"
+    ],
+    "groups": [
+      "admins"
+    ]
+  },
+  "read": {
+    "actors": [
+      "lxc-controller",
+      "pivotal"
+    ],
+    "groups": [
+      "admins",
+      "users"
+    ]
+  },
+  "update": {
+    "actors": [
+      "lxc-controller",
+      "pivotal"
+    ],
+    "groups": [
+      "admins"
+    ]
+  },
+  "delete": {
+    "actors": [
+      "lxc-controller",
+      "pivotal"
+    ],
+    "groups": [
+      "admins",
+      "users"
+    ]
+  },
+  "grant": {
+    "actors": [
+      "lxc-controller",
+      "pivotal"
+    ],
+    "groups": [
+      "admins"
+    ]
+  }
+}
